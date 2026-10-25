@@ -1,0 +1,27 @@
+{
+  "name": "@learnsphere/server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LearnSphere REST API (Express + MongoDB).",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env src/server.js",
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "seed": "node --env-file-if-exists=.env src/seed/seed.js",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@learnsphere/shared": "*",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "mongoose": "^9.11.4",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0",
+    "supertest": "^7.3.1"
+  }
+}
