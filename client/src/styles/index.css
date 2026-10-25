@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+/* Design tokens: every colour, font, radius, shadow and animation used by the UI. */
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+
+  /* Warm "paper" neutrals */
+  --color-canvas: #f6f4ee;
+  --color-surface: #ffffff;
+  --color-surface-muted: #faf8f3;
+  --color-line: #e8e3d8;
+  --color-line-strong: #d5cdbc;
+  --color-ink: #17212b;
+  --color-ink-muted: #526070;
+  --color-ink-subtle: #87919e;
+
+  /* Brand: deep scholarly teal */
+  --color-brand-50: #edfaf7;
+  --color-brand-100: #d3f1ea;
+  --color-brand-200: #a9e2d6;
+  --color-brand-300: #74cbbb;
+  --color-brand-400: #43ad9c;
+  --color-brand-500: #279282;
+  --color-brand-600: #1c7569;
+  --color-brand-700: #1a5e56;
+  --color-brand-800: #194c46;
+  --color-brand-900: #173f3b;
+  --color-brand-950: #0a2523;
+
+  /* Accent: saffron highlight */
+  --color-accent-50: #fff8eb;
+  --color-accent-100: #ffecc6;
+  --color-accent-200: #ffd688;
+  --color-accent-300: #ffbc4a;
+  --color-accent-400: #ffa420;
+  --color-accent-500: #f98307;
+  --color-accent-600: #dd5e02;
+  --color-accent-700: #b73d06;
+
+  /* Feedback */
+  --color-danger-50: #fef3f2;
+  --color-danger-100: #fee4e2;
+  --color-danger-200: #fecdca;
+  --color-danger-500: #f04438;
+  --color-danger-600: #d92d20;
+  --color-danger-700: #b42318;
+
+  --radius-card: 1.125rem;
+  --shadow-card: 0 1px 2px rgb(23 33 43 / 0.04), 0 6px 20px -8px rgb(23 33 43 / 0.1);
+  --shadow-pop: 0 18px 40px -12px rgb(23 33 43 / 0.28);
+
+  --animate-pop-in: pop-in 160ms ease-out;
+  --animate-fade-in: fade-in 160ms ease-out;
+  --animate-slide-in: slide-in 220ms ease-out;
+  --animate-progress: progress 1.1s ease-in-out infinite;
+
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px) scale(0.98);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes progress {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(250%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
+  }
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--color-accent-200);
+  }
+}
