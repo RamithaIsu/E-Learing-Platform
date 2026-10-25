@@ -1,0 +1,57 @@
+erDiagram
+  INSTRUCTOR ||--o{ COURSE : "teaches"
+  COURSE ||--|{ LESSON : "contains (embedded)"
+  COURSE ||--o{ ENROLLMENT : "has"
+  STUDENT ||--o{ ENROLLMENT : "makes"
+
+  INSTRUCTOR {
+    ObjectId _id PK
+    string fullName "required, 2-80 chars"
+    string email UK "required, lowercase"
+    string phone "required, Sri Lankan mobile"
+    string expertise "required, 2-100 chars"
+    string bio "optional, max 500 chars"
+    date createdAt
+    date updatedAt
+  }
+
+  COURSE {
+    ObjectId _id PK
+    string title "required, 3-120 chars"
+    string code UK "required, e.g. WEB101"
+    string description "required, 20-2000 chars"
+    string category "enum"
+    string level "enum: Beginner, Intermediate, Advanced"
+    string status "enum: Draft, Published, Archived"
+    ObjectId instructor FK "ref Instructor"
+    int price "LKR, 0-1000000"
+    int capacity "1-500 seats"
+    date createdAt
+    date updatedAt
+  }
+
+  LESSON {
+    string title "required, 3-120 chars"
+    int durationMinutes "1-600"
+  }
+
+  STUDENT {
+    ObjectId _id PK
+    string fullName "required, 2-80 chars"
+    string email UK "required, lowercase"
+    string phone "required, Sri Lankan mobile"
+    date dateOfBirth "age 13-100"
+    date createdAt
+    date updatedAt
+  }
+
+  ENROLLMENT {
+    ObjectId _id PK
+    ObjectId student FK "ref Student"
+    ObjectId course FK "ref Course"
+    string status "enum: Active, Completed, Dropped"
+    int progress "0-100"
+    date enrolledAt
+    date createdAt
+    date updatedAt
+  }

@@ -42,6 +42,15 @@ async function request(path, { method = 'GET', body, params } = {}) {
   if (response.status === 204) return null;
   const data = await response.json().catch(() => null);
   if (!response.ok) throw new ApiError(response.status, data);
+  // A successful status without a JSON body means the request never reached the API.
+  if (data === null) {
+    throw new ApiError(response.status, {
+      error: {
+        code: 'INVALID_RESPONSE',
+        message: 'The server sent an unexpected response. Please try again.',
+      },
+    });
+  }
   return data;
 }
 
