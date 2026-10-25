@@ -11,7 +11,7 @@ export default [
     languageOptions: { ecmaVersion: 'latest', sourceType: 'module' },
     rules: {
       eqeqeq: ['error', 'smart'],
-      'no-console': 'off',
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
   {
