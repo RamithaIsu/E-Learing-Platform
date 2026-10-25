@@ -1,0 +1,25 @@
+{
+  "name": "learnsphere",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LearnSphere - a MERN e-learning management platform for courses, instructors, students and enrollments.",
+  "type": "module",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev -w server\" \"npm run dev -w client\"",
+    "start": "npm start -w server",
+    "seed": "npm run seed -w server",
+    "build": "npm run build -w client",
+    "test": "npm test -w shared && npm test -w server",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "engines": {
+    "node": ">=22.9.0"
+  }
+}
