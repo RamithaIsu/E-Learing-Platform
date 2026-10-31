@@ -2,8 +2,8 @@
 
 LearnSphere is a full-stack **MERN** (MongoDB, Express, React, Node.js) web application for running an e-learning platform. Administrators can manage the **course catalogue**, the **teaching team**, **registered students** and **course enrollments** with complete create, read, update and delete (CRUD) workflows.
 
-> Developed For EE4207 Web Application Development - Mini Project
-> **Student:** W.G.R.I.N. Dharmaweera (EG/2023/5560)
+Developed For EE4207 Web Application Development - Mini Project
+> W.G.R.I.N. Dharmaweera (EG/2023/5560)
 
 ![Dashboard](docs/screenshots/01-dashboard.png)
 
